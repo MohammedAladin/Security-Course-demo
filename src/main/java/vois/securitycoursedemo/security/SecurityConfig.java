@@ -1,6 +1,7 @@
 package vois.securitycoursedemo.security;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -16,6 +17,7 @@ import vois.securitycoursedemo.security.apikey.ApiKeyAuthenticationConfigurer;
 import vois.securitycoursedemo.security.userdetailsservice.InMemoryUserDetailsServiceConfig;
 import vois.securitycoursedemo.security.userdetailsservice.JdbcUserDetailsServiceConfig;
 import vois.securitycoursedemo.security.userdetailsservice.jpa.JpaUserDetailsServiceConfig;
+import vois.securitycoursedemo.security.userdetailsservice.jpa.UsernamePwdAuthenticationProvider;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -28,8 +30,11 @@ import static org.springframework.security.config.Customizer.withDefaults;
         }
 )
 public class SecurityConfig {
+    @Autowired
+    private UsernamePwdAuthenticationProvider usernamePwdAuthenticationProvider;
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain( HttpSecurity http) throws Exception {
+        http.authenticationProvider(usernamePwdAuthenticationProvider);
         configureHttpBasic(http);
         configureFormLogin(http);
         configureEndpointsAuthentication(http);
