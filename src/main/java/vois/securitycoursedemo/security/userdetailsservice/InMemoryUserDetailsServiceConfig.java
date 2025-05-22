@@ -1,4 +1,4 @@
-package vois.securitycoursedemo.userdetailsservice;
+package vois.securitycoursedemo.security.userdetailsservice;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;

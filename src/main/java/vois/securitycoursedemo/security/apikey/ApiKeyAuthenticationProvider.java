@@ -1,4 +1,4 @@
-package vois.securitycoursedemo.security.authenticationmanagers;
+package vois.securitycoursedemo.security.apikey;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;

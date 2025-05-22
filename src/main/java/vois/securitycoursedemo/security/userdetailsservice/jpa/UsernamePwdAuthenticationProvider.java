@@ -1,4 +1,4 @@
-package vois.securitycoursedemo.security.authenticationmanagers;
+package vois.securitycoursedemo.security.userdetailsservice.jpa;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UsernamePwdAuthenticationProvider implements AuthenticationProvider {
-    private final UserDetailsService userDetailsService;
+    private final JpaUserDetailsService userDetailsService;
 
-    public UsernamePwdAuthenticationProvider(UserDetailsService userDetailsService) {
+    public UsernamePwdAuthenticationProvider(JpaUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
     @Override
