@@ -55,11 +55,11 @@ public class Customer {
         return password;
     }
 
-    public String getApiKey() {
-        return apiKey;
-    }
-
     public Set<Authority> getAuthorities() {
         return authorities;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 }

@@ -15,5 +15,5 @@ Authorization: Basic aGFtYWRhQGV4YW1wbGUuY29tOnBhc3N3b3Jk
 
 
 ### Bob using API Key authentication
-GET http://localhost:8080/accounts
-Api-Key: 0a9b7c97-7ed3-41b4-85f8-f1915372d45a
+GET http://localhost:8080/sec/accounts
+Api-Key: ABCDEFGHIJKLMNOPQRSTUVWX

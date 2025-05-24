@@ -1,4 +1,4 @@
-package vois.securitycoursedemo.security.userdetailsservice.jpa;
+package vois.securitycoursedemo.security.securedentities;
 
 import org.springframework.security.core.GrantedAuthority;
 import vois.securitycoursedemo.entity.Authority;

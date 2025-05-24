@@ -1,12 +1,10 @@
 package vois.securitycoursedemo.service;
 
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import vois.securitycoursedemo.controller.AccountController.CreateAccountRequest;
 import vois.securitycoursedemo.entity.Account;
 import vois.securitycoursedemo.repository.AccountRepository;
 import vois.securitycoursedemo.security.SecuritySupport;
-import vois.securitycoursedemo.security.userdetailsservice.jpa.SecurityUser;
 
 import java.util.List;
 

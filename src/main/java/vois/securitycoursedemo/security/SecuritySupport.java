@@ -1,7 +1,7 @@
 package vois.securitycoursedemo.security;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import vois.securitycoursedemo.security.userdetailsservice.jpa.SecurityUser;
+import vois.securitycoursedemo.security.securedentities.SecurityUser;
 
 import java.util.Set;
 import java.util.stream.Collectors;
