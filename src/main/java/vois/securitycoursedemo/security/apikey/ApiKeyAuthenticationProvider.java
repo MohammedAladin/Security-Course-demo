@@ -2,15 +2,11 @@ package vois.securitycoursedemo.security.apikey;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
-import vois.securitycoursedemo.security.apikey.ApiKeyAuthenticationToken;
-import vois.securitycoursedemo.security.userdetailsservice.jpa.JpaUserDetailsService;
-import vois.securitycoursedemo.security.userdetailsservice.jpa.SecurityUser;
+import vois.securitycoursedemo.security.userdetailsservice.JpaUserDetailsService;
+import vois.securitycoursedemo.security.securedentities.SecurityUser;
 
 @Component
 public class ApiKeyAuthenticationProvider implements AuthenticationProvider {

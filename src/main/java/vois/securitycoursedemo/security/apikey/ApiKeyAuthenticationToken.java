@@ -1,11 +1,10 @@
 package vois.securitycoursedemo.security.apikey;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
-import vois.securitycoursedemo.security.userdetailsservice.jpa.SecurityUser;
+import vois.securitycoursedemo.security.securedentities.SecurityUser;
 
 import java.util.Collection;
 

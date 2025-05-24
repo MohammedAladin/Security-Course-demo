@@ -1,18 +1,12 @@
-package vois.securitycoursedemo.security.userdetailsservice.jpa;
+package vois.securitycoursedemo.security.userdetailsservice;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import vois.securitycoursedemo.entity.Customer;
 import vois.securitycoursedemo.repository.CustomerRepository;
-
-import java.util.List;
+import vois.securitycoursedemo.security.securedentities.SecurityUser;
 
 @Service
 public class JpaUserDetailsService implements UserDetailsService {

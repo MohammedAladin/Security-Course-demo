@@ -1,0 +1,28 @@
+### Hamada creating a account using Basic Authentication
+POST http://localhost:8080/sec/create
+Content-Type: application/json
+Authorization: Basic aGFtYWRhQGV4YW1wbGUuY29tOnBhc3N3b3Jk
+
+{
+  "balance": 35000
+}
+
+### Hamada retrieving an account using Basic Authentication
+GET http://localhost:8080/sec/accounts
+Content-Type: application/json
+Authorization: Basic aGFtYWRhQGV4YW1wbGUuY29tOnBhc3N3b3Jk
+
+
+### Hamada retrieving an account using API Key authentication
+GET http://localhost:8080/sec/accounts
+Api-Key: ABCDEFGHIJKLMNOPQRSTUVWX-54321
+
+
+### Hamada creating an account using API Key authentication
+POST http://localhost:8080/sec/create
+Content-Type: application/json
+Api-Key: ABCDEFGHIJKLMNOPQRSTUVWX-54321
+
+{
+  "balance": 35123
+}
