@@ -1,5 +1,4 @@
 package vois.securitycoursedemo.security.usernamepwdauthentication;
-
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;

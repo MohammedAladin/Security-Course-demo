@@ -1,7 +1,7 @@
 package vois.securitycoursedemo.service;
 
+import vois.securitycoursedemo.dtos.CreateAccountRequest;
 import org.springframework.stereotype.Service;
-import vois.securitycoursedemo.controller.AccountController.CreateAccountRequest;
 import vois.securitycoursedemo.entity.Account;
 import vois.securitycoursedemo.repository.AccountRepository;
 import vois.securitycoursedemo.security.SecuritySupport;

@@ -1,10 +1,7 @@
 package vois.securitycoursedemo.security;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import vois.securitycoursedemo.security.securedentities.SecurityUser;
 
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class SecuritySupport {
     public static Long getCurrentUserId() {
@@ -20,10 +17,4 @@ public class SecuritySupport {
         return securityUser;
     }
 
-    public static Set<String> getCurrentUserAuthorities() {
-        return getCurrentUser().getAuthorities()
-                .stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toSet());
-    }
 }

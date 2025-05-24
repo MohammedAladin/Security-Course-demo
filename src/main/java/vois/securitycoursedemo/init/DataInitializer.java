@@ -23,9 +23,9 @@ public class DataInitializer {
                                              PasswordEncoder passwordEncoder) {
 
         return args -> {
-
-
-
+            if(customerRepository.count() > 0) {
+                return; // Data already initialized, skip
+            }
             customerRepository.deleteAll();
             authorityRepository.deleteAll();
             accountRepository.deleteAll();

@@ -58,7 +58,7 @@ public class SecurityConfig {
     @Bean
     PasswordEncoder passwordEncoder() {
 //        For learning Spring Security
-        return NoOpPasswordEncoder.getInstance();
+        return NoOpPasswordEncoder.getInstance(); // deprecated, but works for learning purposes
 
 //        Don't use it directly, give yourself a chance for future upgrade
 //        return new BCryptPasswordEncoder();

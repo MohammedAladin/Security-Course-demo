@@ -1,12 +1,8 @@
 package vois.securitycoursedemo.entity;
-
 import jakarta.persistence.*;
-import lombok.Getter;
 
 @Entity
 public class Account {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  // Adding a primary key
@@ -16,7 +12,6 @@ public class Account {
 
     public Account() {
     }
-
     @JoinColumn(table = "customer", referencedColumnName = "id")
     public Long customerId;
 
@@ -33,7 +28,4 @@ public class Account {
         return balance;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
 }

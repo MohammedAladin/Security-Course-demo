@@ -1,11 +1,11 @@
 package vois.securitycoursedemo.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import vois.securitycoursedemo.dtos.AccountResponse;
+import vois.securitycoursedemo.dtos.CreateAccountRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vois.securitycoursedemo.entity.Account;
+
 import vois.securitycoursedemo.service.AccountService;
 
 import java.util.List;
@@ -44,11 +44,4 @@ public class AccountController
 
 
 
-    public record AccountResponse(Long id, double balance) {
-        public static AccountResponse from(Account account) {
-            return new AccountResponse(account.getId(), account.getBalance());
-        }
-    }
-    public record CreateAccountRequest(double balance) {
-    }
 }
