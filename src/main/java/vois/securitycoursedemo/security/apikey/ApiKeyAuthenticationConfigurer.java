@@ -1,5 +1,4 @@
 package vois.securitycoursedemo.security.apikey;
-
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;

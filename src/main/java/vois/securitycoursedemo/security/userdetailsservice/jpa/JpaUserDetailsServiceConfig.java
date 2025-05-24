@@ -5,8 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import vois.securitycoursedemo.entity.Account;
 import vois.securitycoursedemo.entity.Authority;
 import vois.securitycoursedemo.entity.Customer;
+import vois.securitycoursedemo.repository.AccountRepository;
 import vois.securitycoursedemo.repository.AuthorityRepository;
 import vois.securitycoursedemo.repository.CustomerRepository;
 import java.util.List;
@@ -22,11 +24,15 @@ public class JpaUserDetailsServiceConfig {
     @Bean
     public ApplicationRunner initializeUsers(AuthorityRepository authorityRepository,
                                              CustomerRepository customerRepository,
+                                             AccountRepository accountRepository,
                                              PasswordEncoder passwordEncoder) {
         return args -> {
 
+
+
             customerRepository.deleteAll();
             authorityRepository.deleteAll();
+            accountRepository.deleteAll();
 
             Authority roleAdmin = authorityRepository.save(new Authority("ROLE_ADMIN"));
             Authority roleCustomer = authorityRepository.save(new Authority("ROLE_CUSTOMER"));
@@ -43,6 +49,10 @@ public class JpaUserDetailsServiceConfig {
                     Set.of(roleCustomer)
             );
 
+            Account hamadaAccount = new Account(hamada.getId(), 1000.0);
+            Account jojoAccount = new Account(jojo.getId(), 500.0);
+
+            accountRepository.saveAll(List.of(hamadaAccount, jojoAccount));
             customerRepository.saveAll(List.of(hamada, jojo));
         };
     }

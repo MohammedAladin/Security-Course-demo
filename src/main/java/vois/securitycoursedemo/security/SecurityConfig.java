@@ -30,27 +30,31 @@ import static org.springframework.security.config.Customizer.withDefaults;
         }
 )
 public class SecurityConfig {
-    @Autowired
-    private UsernamePwdAuthenticationProvider usernamePwdAuthenticationProvider;
+
+    private final UsernamePwdAuthenticationProvider usernamePwdAuthenticationProvider;
+
+    public SecurityConfig(UsernamePwdAuthenticationProvider usernamePwdAuthenticationProvider) {
+        this.usernamePwdAuthenticationProvider = usernamePwdAuthenticationProvider;
+    }
+
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain( HttpSecurity http) throws Exception {
-        http.authenticationProvider(usernamePwdAuthenticationProvider);
         configureHttpBasic(http);
-        configureFormLogin(http);
-        configureEndpointsAuthentication(http);
+        http.authenticationProvider(usernamePwdAuthenticationProvider);
 
-        //configureApiKeyAuthentication(http);
+        //configureFormLogin(http);
+        configureEndpointsAuthentication(http);
+        configureApiKeyAuthentication(http);
         return http.build();
     }
 
     private static void configureEndpointsAuthentication(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/account").authenticated()
+                        .requestMatchers("/sec/*").authenticated()
                         .requestMatchers("/home").permitAll()
                 );
     }
-
     private static void configureFormLogin(HttpSecurity http) throws Exception {
         http.formLogin(withDefaults());
     }
