@@ -1,5 +1,6 @@
 package vois.securitycoursedemo.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -23,8 +24,18 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<JwtAuthResponse> login(@RequestParam String username, @RequestParam String password) {
         var auth = authManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-        return jwtUtils.generateToken(username);
+        String token = jwtUtils.generateToken(username);
+        return ResponseEntity.ok(new JwtAuthResponse(token));
     }
+
+
+    public record JwtAuthResponse(String accessToken, String tokenType) {
+        public JwtAuthResponse(String accessToken) {
+            this(accessToken, "Bearer");
+        }
+    }
+
+
 }
