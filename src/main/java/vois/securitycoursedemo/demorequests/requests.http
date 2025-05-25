@@ -26,3 +26,10 @@ Api-Key: ABCDEFGHIJKLMNOPQRSTUVWX-54321
 {
   "balance": 35123
 }
+
+### Hamada logging in.
+# @no-cookie-jar
+POST http://localhost:8080/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=hamada@example.com&password=password

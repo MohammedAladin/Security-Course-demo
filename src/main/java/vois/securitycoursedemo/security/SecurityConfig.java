@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import vois.securitycoursedemo.security.apikey.ApiKeyAuthenticationConfigurer;
+import vois.securitycoursedemo.security.jwt.JwtAuthenticationConfigurer;
 import vois.securitycoursedemo.security.usernamepwdauthentication.JpaUserDetailsServiceConfigurer;
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -31,6 +32,7 @@ public class SecurityConfig {
         //configureFormLogin(http);
         configureEndpointsAuthentication(http);
         configureApiKeyAuthentication(http);
+        configureJwtProvider(http);
         return http.build();
     }
 
@@ -38,7 +40,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/sec/*").authenticated()
-                        .requestMatchers("/home").permitAll()
+                        .requestMatchers("/home", "/auth/*").permitAll()
                 );
     }
     private static void configureFormLogin(HttpSecurity http) throws Exception {
@@ -53,6 +55,9 @@ public class SecurityConfig {
     }
     private static void configureJpaUserDetailsWithUserNameAndPwdProvider(HttpSecurity http) throws Exception {
         http.with(new JpaUserDetailsServiceConfigurer(), Customizer.withDefaults());
+    }
+    private static void configureJwtProvider(HttpSecurity http) throws Exception {
+        http.with(new JwtAuthenticationConfigurer(), Customizer.withDefaults());
     }
 
     @Bean
